@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   substr.c                                           :+:      :+:    :+:   */
+/*   strlcpy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 17:18:35 by maabidal          #+#    #+#             */
-/*   Updated: 2021/11/29 19:16:21 by maabidal         ###   ########.fr       */
+/*   Created: 2021/11/29 20:06:31 by maabidal          #+#    #+#             */
+/*   Updated: 2021/11/29 20:06:51 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	char	*new;
+	unsigned int i;
+	unsigned int j;
 
-	new = malloc(len * sizeof(char));
-	if (new == NULL)
-		return (NULL);
-	new[len] = 0;
-	while (--len > 0)
-		new[len] = s[start + len];
-	return (new);
+	i = 0;
+	j = 0;
+	while (src[j] != '\0')
+	{
+		if (i < size - 1 && size > 0)
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		j++;
+	}
+	dest[i] = '\0';
+	return (j);
 }

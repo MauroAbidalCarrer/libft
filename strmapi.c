@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   substr.c                                           :+:      :+:    :+:   */
+/*   strmapi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 17:18:35 by maabidal          #+#    #+#             */
-/*   Updated: 2021/11/29 19:16:21 by maabidal         ###   ########.fr       */
+/*   Created: 2021/11/29 14:59:04 by maabidal          #+#    #+#             */
+/*   Updated: 2021/11/29 19:58:20 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdlib.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*new;
+	char	c;
+	int		i;
 
-	new = malloc(len * sizeof(char));
+	i = 0;
+	while (s[i])
+		i++;
+	new = malloc((i + 1) * sizeof(char));
 	if (new == NULL)
 		return (NULL);
-	new[len] = 0;
-	while (--len > 0)
-		new[len] = s[start + len];
+	new[i] = 0;
+	i = 0;
+	while (s[i])
+	{
+		c = s[i];
+		new[i] = (*f)((int)c, c);
+		i++;
+	}
 	return (new);
 }

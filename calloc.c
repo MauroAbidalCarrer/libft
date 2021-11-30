@@ -6,17 +6,17 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:29:25 by maabidal          #+#    #+#             */
-/*   Updated: 2021/11/25 17:06:44 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/11/29 19:18:57 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<limits.h>
 #include<stdlib.h>
 
-void*	ft_calloc(int nmemb, int size)
+void	*ft_calloc(int nmemb, int size)
 {
-	long	length;
-	unsigned char*	add;
+	unsigned char	*add;
+	long		length;
 
 	length = (long)nmemb * (long)size;
 	if (length >= INT_MAX)
@@ -26,8 +26,7 @@ void*	ft_calloc(int nmemb, int size)
 		return (NULL);
 	while (length > 0)
 		add[length--] = 0;
-	return ((void*)add);
-
+	return ((void *)add);
 }
 
 /*

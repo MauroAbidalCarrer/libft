@@ -6,17 +6,16 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 17:07:07 by maabidal          #+#    #+#             */
-/*   Updated: 2021/11/25 17:57:48 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/11/29 19:11:18 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdlib.h>
-#include<stdio.h>
 
-char*	ft_strdup(char* str)
+char	*ft_strdup(char *str)
 {
+	char	*new;
 	int	length;
-	char*	new;
 
 	if (str == NULL)
 		return (NULL);
@@ -34,6 +33,8 @@ char*	ft_strdup(char* str)
 	return (new);
 }
 
+/*
+#include<stdio.h>
 #include<string.h>
 int test(char* str)
 {
@@ -81,3 +82,4 @@ int main(int ac, char** av)
 	else
 		printf("No errors enountered\n");
 }
+*/

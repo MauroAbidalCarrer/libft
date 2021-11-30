@@ -6,7 +6,7 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 15:43:20 by maabidal          #+#    #+#             */
-/*   Updated: 2021/11/29 16:18:43 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/11/29 19:59:17 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write(&c, 1, fd);
+	write(fd, &c, 1);
 }
 
 void	ft_putstr_fd(char *s, int fd)

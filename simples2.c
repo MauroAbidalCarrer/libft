@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   substr.c                                           :+:      :+:    :+:   */
+/*   simples2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 17:18:35 by maabidal          #+#    #+#             */
-/*   Updated: 2021/11/29 19:16:21 by maabidal         ###   ########.fr       */
+/*   Created: 2021/11/29 19:26:05 by maabidal          #+#    #+#             */
+/*   Updated: 2021/11/29 19:53:32 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static int	inrange(char c, char a, char b)
 {
-	char	*new;
+	return (c >= (unsigned char)a && c <= (unsigned char)b);
+}
 
-	new = malloc(len * sizeof(char));
-	if (new == NULL)
-		return (NULL);
-	new[len] = 0;
-	while (--len > 0)
-		new[len] = s[start + len];
-	return (new);
+int	ft_isprint(int c)
+{
+	return (inrange(c, ' ', '~'));
+}
+
+int	ft_toupper(int c)
+{
+	if (inrange(c, 'a', 'z'))
+		return (c - 'a' + 'A');
+	return (c);
+}
+
+int	ft_tolozer(int c)
+{
+	if (inrange(c, 'A', 'Z'))
+		return (c + 'a' - 'A');
+	return (c);
 }

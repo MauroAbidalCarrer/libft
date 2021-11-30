@@ -1,16 +1,28 @@
-char*	ft_strchr(char* str, int c)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   strStuff.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/29 18:46:52 by maabidal          #+#    #+#             */
+/*   Updated: 2021/11/29 19:49:01 by maabidal         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+char	*ft_strchr(char *str, int c)
 {
 	while (*str && *str != (char)c)
 		str++;
 	if (*str == (char)c)
-		return str;
-	return 0;
+		return (str);
+	return (0);
 }
 
-char*	ft_strrchr(char* str, int c)
+char	*ft_strrchr(char *str, int c)
 {
-	int i;
-	char* j;
+	int	i;
+	char	*j;
 
 	i = -1;
 	j = 0;
@@ -19,10 +31,10 @@ char*	ft_strrchr(char* str, int c)
 		if (str[i] == (char)c)
 			j = str + i;
 	}
-	return(j);
+	return (j);
 }
 
-int	ft_strncmp(char* s1, char* s2, int n)
+int	ft_strncmp(char *s1, char *s2, int n)
 {
 	if (n == 0)
 		return (0);
@@ -35,35 +47,9 @@ int	ft_strncmp(char* s1, char* s2, int n)
 	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
 
-void*	ft_memchr(void* s, int c, int n)
+char	*ft_strnstr(char *haystack, char *needle, int len)
 {
-	unsigned char* str;
-
-	str = (unsigned char*)s;
-	if (n == 0)
-		return 0;
-	while (n > 0 && *str++ != (unsigned char)c)
-		n--;
-	if (*str == (unsigned char)c)
-		return s;
-	return 0;
-}
-
-int	ft_memcmp(void* s1, void* s2, int n)
-{
-	unsigned char* str1;
-	unsigned char* str2;
-
-	str1 = (unsigned char*)s1;
-	str2 = (unsigned char*)s2;
-	while (n > 0 && str1++ == str2++)
-		n--;
-	return ((*str1 - *str2) * (n != 0));
-}
-
-char*	ft_strnstr(char* haystack, char* needle, int len)
-{
-	int i;
+	int	i;
 
 	if (len == 0)
 		return (0);
@@ -73,34 +59,19 @@ char*	ft_strnstr(char* haystack, char* needle, int len)
 		while (haystack[i] == needle[i])
 		{
 			if (haystack[i + 1] == 0)
-				return haystack;
+				return (haystack);
 			i++;
 		}
 	}
-	return 0;
+	return (0);
 }
 
-#include<ctype.h>
-int ft_atoi(char* str)
+int	ft_strlen(char *str)
 {
-	unsigned int	sign;
-	unsigned int	nb;
+	int	i;
 
-	while (*str == ' ' || (*str >= 9 && *str <= 13)
-		str++;
-	sign = 1 * -(*str == '-');
-	while (isdigit(*(++str)))
-		nb = nb * 10 + *str - '0';
-	return nb * sign;
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
-
-int	
-
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
-int main(int ac, char** av)
-{
-	av[1][2] = '\t';
-	printf("%d\n", atoi(av[1]));
-}	

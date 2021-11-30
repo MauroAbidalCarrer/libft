@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   substr.c                                           :+:      :+:    :+:   */
+/*   striteri.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 17:18:35 by maabidal          #+#    #+#             */
-/*   Updated: 2021/11/29 19:16:21 by maabidal         ###   ########.fr       */
+/*   Created: 2021/11/29 15:32:34 by maabidal          #+#    #+#             */
+/*   Updated: 2021/11/29 19:57:14 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	char	*new;
+	int	i;
 
-	new = malloc(len * sizeof(char));
-	if (new == NULL)
-		return (NULL);
-	new[len] = 0;
-	while (--len > 0)
-		new[len] = s[start + len];
-	return (new);
+	i = -1;
+	while (s[++i])
+		(*f)((unsigned int)i, s + i);
 }
