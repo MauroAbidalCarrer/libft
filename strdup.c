@@ -6,7 +6,7 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 17:07:07 by maabidal          #+#    #+#             */
-/*   Updated: 2021/11/29 19:11:18 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/11/30 19:17:47 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ char	*ft_strdup(char *str)
 
 	if (str == NULL)
 		return (NULL);
-	length = 1;
-	while (str[length - 1])
+	length = 0;
+	while (str[length])
 		length++;
-	new = malloc(length * sizeof(char));
+	new = malloc((length + 1) * sizeof(char));
 	if (new == NULL)
 		return (NULL);
 	while (length >= 0)
@@ -32,7 +32,6 @@ char	*ft_strdup(char *str)
 	}
 	return (new);
 }
-
 /*
 #include<stdio.h>
 #include<string.h>
@@ -67,7 +66,7 @@ int main(int ac, char** av)
 	char tests[][50] = 
 	{
 		"",
-		"awreawer",
+		"\xd\xe\xa\xd\xb\xe\xe\xf.",
 		"q",
 		"Bonjour\200qwe"
 	};

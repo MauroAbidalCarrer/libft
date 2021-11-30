@@ -6,11 +6,11 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 19:27:16 by maabidal          #+#    #+#             */
-/*   Updated: 2021/11/29 19:53:22 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/11/30 17:07:17 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	inrange(char c, char a, char b)
+static int	inrange(int c, char a, char b)
 {
 	return (c >= (unsigned char)a && c <= (unsigned char)b);
 }
@@ -53,8 +53,8 @@ int test(int (*my)(int c), int (*og)(int c), char* name)
 {
 	printf("Testing %s.\n", name);
 	int result = 1;
-	for(int c = 0; c <= 255; c++)
-		result *= testOneC(c,my, og);
+	for(int c = 0; c <= 530; c++)
+		result *= testOneC(c, my, og);
 	if(result == 0)
 		printf("Some result missmatch.\n");
 	else
@@ -65,11 +65,10 @@ int test(int (*my)(int c), int (*og)(int c), char* name)
 int main(int ac, char** av)
 
 {
-	int a = atoi(av[1]);
 	test(&ft_isalpha, &isalpha,"isalpha");
 	test(&ft_isdigit, &isdigit,"isdigit");
 	test(&ft_isalnum, &isalnum,"isalnum");
 	test(&ft_isascii, &isascii,"isascii");
-	test(&ft_isprint, &isprint,"isprint");
+//	test(&ft_isprint, &isprint,"isprint");
 }
 */
