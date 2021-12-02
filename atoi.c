@@ -6,7 +6,7 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:24:58 by maabidal          #+#    #+#             */
-/*   Updated: 2021/11/30 15:32:42 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/02 18:52:03 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	ft_atoi(char *str)
 		nb = nb * 10 + *str++ - '0';
 	return ((int)(nb * sign));
 }
+/*
 #include<stdlib.h>
 #include<stdio.h>
 int test(char* test)
@@ -44,7 +45,6 @@ int test(char* test)
 	printf("test= %s\nmy = %d\nog = %d\n\n", test, my, og);
 	return (og != my);
 }
-
 int main(int ac, char** av)
 {
 	char tests [][30] =
@@ -69,3 +69,4 @@ int main(int ac, char** av)
 	else
 		printf("Erros ecountered.\n");
 }
+*/

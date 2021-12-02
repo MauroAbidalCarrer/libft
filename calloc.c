@@ -6,7 +6,7 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:29:25 by maabidal          #+#    #+#             */
-/*   Updated: 2021/11/29 19:18:57 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/02 18:56:55 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	*ft_calloc(int nmemb, int size)
 {
+	long			length;
 	unsigned char	*add;
-	long		length;
 
 	length = (long)nmemb * (long)size;
 	if (length >= INT_MAX)

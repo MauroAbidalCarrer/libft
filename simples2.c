@@ -6,7 +6,7 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 19:26:05 by maabidal          #+#    #+#             */
-/*   Updated: 2021/11/29 19:53:32 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/01 18:21:13 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_toupper(int c)
 	return (c);
 }
 
-int	ft_tolozer(int c)
+int	ft_tolower(int c)
 {
 	if (inrange(c, 'A', 'Z'))
 		return (c + 'a' - 'A');

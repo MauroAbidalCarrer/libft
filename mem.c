@@ -6,9 +6,11 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 16:26:01 by maabidal          #+#    #+#             */
-/*   Updated: 2021/11/30 16:09:10 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/02 18:57:27 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include<stdlib.h>
 
 void	*ft_memset(void *b, int c, int len)
 {
@@ -24,8 +26,6 @@ void	ft_bzero(void *s, int n)
 {
 	ft_memset(s, 0, n);
 }
-
-#include<stdlib.h>
 
 void	*ft_memcpy(void *dst, void *src, int n)
 {

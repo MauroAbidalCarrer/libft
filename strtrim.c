@@ -6,12 +6,48 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 20:56:14 by maabidal          #+#    #+#             */
-/*   Updated: 2021/11/29 19:54:56 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/02 19:07:00 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdlib.h>
 #include<stdio.h>
+
+static size_t	ft_strlen(char const *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	*subsub(char const *s, unsigned int start, size_t len)
+{
+	char	*new;
+
+	if (s == NULL)
+		return (NULL);
+	if (start + len > ft_strlen(s) || len == 0)
+	{
+		new = malloc(sizeof(char));
+		*new = 0;
+		return (new);
+	}
+	new = malloc((len + 1) * sizeof(char));
+	if (new == NULL)
+		return (NULL);
+	new[len] = 0;
+	while (1)
+	{
+		len--;
+		new[len] = s[start + len];
+		if (len == 0)
+			break ;
+	}
+	return (new);
+}
 
 static int	isin(char c, char const *s)
 {
@@ -28,35 +64,16 @@ static int	isin(char c, char const *s)
 
 char	*ft_strtrim(char const *s1, char const *s2)
 {
-	char	*new;
-	int		size;
-	int		i;
+	int	start;
+	int	end;
 
 	if (!s1 || !s2)
 		return (NULL);
-	size = 0;
-	new = (char *)s1 - 1;
-	while (*++new)
-		size += !isin(*new, s2);
-	new = malloc(sizeof(char) * (size + 1));
-	if (new == NULL)
-		return (NULL);
-	new[size] = 0;
-	i = 0;
-	while (i < size)
-	{
-		if (!isin(*s1, s2))
-		{
-			new[i] = *s1;
-			i++;
-		}
-		s1++;
-	}
-	return (new);
+	start = 0;
+	while (s1[start] && isin(s1[start], s2))
+		start++;
+	end = (int)ft_strlen(s1) - 1;
+	while (end > start && isin(s1[end], s2))
+		end--;
+	return (subsub(s1, start, end - start + 1));
 }
-/*
-int main(int ac, char** av)
-{
-	printf("%s\n", ft_strtrim((const char*)av[1], (const char*)av[2]));
-}
-*/

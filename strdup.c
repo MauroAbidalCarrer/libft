@@ -6,7 +6,7 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 17:07:07 by maabidal          #+#    #+#             */
-/*   Updated: 2021/11/30 19:17:47 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/02 18:58:01 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strdup(char *str)
 {
+	int		length;
 	char	*new;
-	int	length;
 
 	if (str == NULL)
 		return (NULL);

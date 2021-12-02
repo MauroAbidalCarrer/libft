@@ -6,7 +6,7 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 22:17:01 by maabidal          #+#    #+#             */
-/*   Updated: 2021/11/29 19:55:09 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/02 18:33:57 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,27 @@ static long	ft_abs(int n)
 char	*ft_itoa(int n)
 {
 	char	*str;
-	int		size;
+	int		len;
 	long	i;
 
-	size = (n < 0) + 1;
+	len = (n < 0) + 1;
 	i = ft_abs(n);
-	while (i > 10)
+	while (i >= 10)
 	{
 		i /= 10;
-		size++;
+		len++;
 	}
-	str = malloc(sizeof(char) * (size + 1));
+	str = malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
-	str[size] = 0;
+	str[len] = 0;
 	*str = '-';
-	i = (n < 0);
-	while (--size >= i)
+	i = ft_abs(n);
+	n = (n < 0);
+	while (--len >= n)
 	{
-		str[size] = '0' + ft_abs(n) % 10;
-		n /= 10;
+		str[len] = '0' + i % 10;
+		i /= 10;
 	}
 	return (str);
 }
