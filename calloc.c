@@ -6,7 +6,7 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:29:25 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/02 18:56:55 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/02 19:19:24 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,15 @@ void	*ft_calloc(int nmemb, int size)
 	unsigned char	*add;
 
 	length = (long)nmemb * (long)size;
-	if (length >= INT_MAX)
+	if (length >= (long)INT_MAX)
 		return (NULL);
 	add = malloc(length);
 	if (add == NULL)
 		return (NULL);
-	while (length > 0)
-		add[length--] = 0;
+	while (--length >= 0)
+		add[length] = 0;
 	return ((void *)add);
 }
-
 /*
 #include<stdio.h>
 int test(int nmemb, int size)
@@ -49,6 +48,8 @@ int test(int nmemb, int size)
 			printf("%p = %d\n",  my + i, my[i]);
 		}
 	}
+	free (my);
+	free (og);
 	return erros;
 }
 int main()
