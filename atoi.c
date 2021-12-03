@@ -6,7 +6,7 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:24:58 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/02 18:52:03 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/02 19:27:02 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@ static int	iswhite(char c)
 	return (c == ' ' || inrange(c, 9, 13));
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *nptr)
 {
 	long	sign;
 	long	nb;
 
-	while (iswhite(*str))
-		str++;
-	sign = 1 - 2 * (*str == '-');
-	if (*str == '-' || *str == '+')
-		str++;
+	while (iswhite(*nptr))
+		nptr++;
+	sign = 1 - 2 * (*nptr == '-');
+	if (*nptr == '-' || *nptr == '+')
+		nptr++;
 	nb = 0;
-	while (inrange(*str, '0', '9'))
-		nb = nb * 10 + *str++ - '0';
+	while (inrange(*nptr, '0', '9'))
+		nb = nb * 10 + *nptr++ - '0';
 	return ((int)(nb * sign));
 }
 /*

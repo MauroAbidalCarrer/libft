@@ -6,7 +6,7 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 20:56:14 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/02 19:07:00 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/03 18:42:01 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,18 @@ static int	isin(char c, char const *s)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *s2)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	int	start;
 	int	end;
 
-	if (!s1 || !s2)
+	if (!s1 || !set)
 		return (NULL);
 	start = 0;
-	while (s1[start] && isin(s1[start], s2))
+	while (s1[start] && isin(s1[start], set))
 		start++;
 	end = (int)ft_strlen(s1) - 1;
-	while (end > start && isin(s1[end], s2))
+	while (end > start && isin(s1[end], set))
 		end--;
 	return (subsub(s1, start, end - start + 1));
 }

@@ -6,13 +6,15 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 18:30:41 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/02 18:59:22 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/02 20:16:22 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_strlen(const char *str)
+#include<stdlib.h>
+
+static size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])
@@ -20,11 +22,13 @@ static int	ft_strlen(const char *str)
 	return (i);
 }
 
-int	ft_strlcat(char *dst, const char *src, int size)
+int	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
+	if (size == 0)
+		return (size + ft_strlen(src));
 	i = 0;
 	while (dst[i])
 	{

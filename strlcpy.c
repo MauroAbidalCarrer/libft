@@ -6,11 +6,13 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 20:06:31 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/02 19:01:02 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/02 20:19:06 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlcpy(char *dst, const char *src, int siz)
+#include<stdlib.h>
+
+int	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	int			n;
 	char		*d;
@@ -18,7 +20,7 @@ int	ft_strlcpy(char *dst, const char *src, int siz)
 
 	d = dst;
 	s = src;
-	n = siz;
+	n = size;
 	if (n != 0)
 	{
 		while (--n != 0)
@@ -30,7 +32,7 @@ int	ft_strlcpy(char *dst, const char *src, int siz)
 	}
 	if (n == 0)
 	{
-		if (siz != 0)
+		if (size != 0)
 			*d = '\0';
 		while (*s++)
 			;

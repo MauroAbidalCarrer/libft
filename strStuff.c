@@ -6,37 +6,42 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:46:52 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/02 19:05:25 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/03 18:38:31 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(char *str, int c)
+char	*ft_strchr(const char *str, int c)
 {
-	while (*str && *str != (char)c)
-		str++;
-	if (*str == (char)c)
-		return (str);
+	char	*s;
+
+	s = (char *)str;
+	while (*s && *s != (char)c)
+		s++;
+	if (*s == (char)c)
+		return (s);
 	return (0);
 }
 
-char	*ft_strrchr(char *str, int c)
+char	*ft_strrchr(const char *str, int c)
 {
 	int		i;
 	char	*j;
+	char	*s;
 
+	s = (char *)str;
 	i = -1;
 	j = 0;
-	while (str[++i])
+	while (s[++i])
 	{
-		if (str[i] == (char)c)
-			j = str + i;
+		if (s[i] == (char)c)
+			j = s + i;
 	}
 	if (c == 0)
-		return (str + i);
+		return (s + i);
 	return (j);
 }
 
-int	ft_strncmp(char *s1, char *s2, int n)
+int	ft_strncmp(const char *s1, const char *s2, int n)
 {
 	if (n == 0)
 		return (0);
@@ -48,23 +53,27 @@ int	ft_strncmp(char *s1, char *s2, int n)
 	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
 
-char	*ft_strnstr(char *haystack, char *needle, int len)
+#include<stdlib.h>
+
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
+	char	*dastack;
 
 	if (!haystack || !needle)
 		return (0);
+	dastack = (char *)haystack;
 	if (!*needle)
-		return (haystack);
+		return (dastack);
 	i = 0;
-	while (haystack[i] && i < len)
+	while (dastack[i] && i < len)
 	{
 		j = 0;
-		while (haystack[i + j] == needle[j] && i + j < len)
+		while (dastack[i + j] == needle[j] && i + j < len)
 		{
 			if (!needle[j + 1])
-				return (haystack + i);
+				return (dastack + i);
 			j++;
 		}
 		i++;
@@ -72,7 +81,7 @@ char	*ft_strnstr(char *haystack, char *needle, int len)
 	return (0);
 }
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 

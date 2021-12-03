@@ -6,14 +6,14 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:29:25 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/02 19:19:24 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/02 19:26:26 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<limits.h>
 #include<stdlib.h>
 
-void	*ft_calloc(int nmemb, int size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
 	long			length;
 	unsigned char	*add;

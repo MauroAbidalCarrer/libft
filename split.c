@@ -6,14 +6,14 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 21:24:55 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/02 18:09:45 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/02 20:03:26 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include<stdlib.h>
 #include<stdio.h>
 
-static const char	*skips(const char *str, char c)
+static char const	*skips(char const *str, char c)
 {
 	int	i;
 
@@ -23,7 +23,7 @@ static const char	*skips(const char *str, char c)
 	return (str + i);
 }
 
-static const char	*skipw(const char *str, char c)
+static char const	*skipw(char const *str, char c)
 {
 	int	i;
 
@@ -33,7 +33,7 @@ static const char	*skipw(const char *str, char c)
 	return (str + i);
 }
 
-static int	getnbwords(const char *str, char c)
+static int	getnbwords(char const *str, char c)
 {
 	int	nbwords;
 
@@ -46,7 +46,7 @@ static int	getnbwords(const char *str, char c)
 	return (nbwords);
 }
 
-static char	*dupuntil(const char *str, char c)
+static char	*dupuntil(char const *str, char c)
 {
 	int		len;
 	char	*dup;
@@ -63,7 +63,7 @@ static char	*dupuntil(const char *str, char c)
 	return (dup);
 }
 
-char	**ft_split(const char *str, char c)
+char	**ft_split(char const *str, char c)
 {
 	int		nbwords;
 	int		i;
