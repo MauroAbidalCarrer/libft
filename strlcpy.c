@@ -6,11 +6,11 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 20:06:31 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/02 20:19:06 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/03 21:16:14 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
+#include"libft.h"
 
 int	ft_strlcpy(char *dst, const char *src, size_t size)
 {

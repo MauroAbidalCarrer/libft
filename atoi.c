@@ -6,9 +6,11 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:24:58 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/02 19:27:02 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/03 21:14:23 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include"libft.h"
 
 static int	inrange(char c, char a, char b)
 {

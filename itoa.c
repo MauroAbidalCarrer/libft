@@ -6,11 +6,11 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 22:17:01 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/02 18:33:57 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/03 21:14:39 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
+#include"libft.h"
 
 static long	ft_abs(int n)
 {

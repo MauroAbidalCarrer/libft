@@ -6,7 +6,7 @@
 #    By: maabidal <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 20:08:50 by maabidal          #+#    #+#              #
-#    Updated: 2021/12/03 19:22:11 by maabidal         ###   ########.fr        #
+#    Updated: 2021/12/03 22:56:44 by maabidal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,3 +52,5 @@ re:			fclean all
 so:
 	gcc -fPIC -Wall -Werror -Wextra -c *.c
 	gcc -shared -o libft.so *.o 
+
+.PHONY:				all clean fclean re bonus

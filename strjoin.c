@@ -6,21 +6,11 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 19:27:34 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/01 22:40:50 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/03 21:21:07 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-
-static int	ft_strlen(char const *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include"libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

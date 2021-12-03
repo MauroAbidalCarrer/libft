@@ -6,11 +6,11 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:46:52 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/03 19:28:43 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/03 22:48:02 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
+#include"libft.h"
 
 char	*ft_strchr(const char *str, int c)
 {
@@ -43,16 +43,19 @@ char	*ft_strrchr(const char *str, int c)
 	return (j);
 }
 
-int	ft_strncmp(const char *s1, const char *s2, int n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (n == 0)
-		return (0);
-	while (*s1 && *s1 == *s2 && --n > 0)
+	while (n > 0 && *s1 && *s2)
 	{
+		if (*s1 != *s2)
+			break ;
 		s1++;
 		s2++;
+		n--;
 	}
-	return ((unsigned char)*s1 - (unsigned char)*s2);
+	if (*s1 != *s2 && n)
+		return ((unsigned char)*s1 - (unsigned char)*s2);
+	return (0);
 }
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
@@ -81,9 +84,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	return (0);
 }
 
-int	ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i])

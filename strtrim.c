@@ -6,22 +6,11 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 20:56:14 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/03 18:42:01 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/03 21:18:03 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-#include<stdio.h>
-
-static size_t	ft_strlen(char const *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include"libft.h"
 
 char	*subsub(char const *s, unsigned int start, size_t len)
 {

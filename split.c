@@ -6,12 +6,11 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 21:24:55 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/02 20:03:26 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/03 21:15:22 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
-#include<stdio.h>
+#include"libft.h"
 
 static char const	*skips(char const *str, char c)
 {
