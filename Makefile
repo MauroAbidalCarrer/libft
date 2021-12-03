@@ -6,7 +6,7 @@
 #    By: maabidal <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 20:08:50 by maabidal          #+#    #+#              #
-#    Updated: 2021/11/30 15:23:42 by maabidal         ###   ########.fr        #
+#    Updated: 2021/12/03 19:22:11 by maabidal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS	= atoi.c\
        	  simples.c\
 	  striteri.c\
 	  itoa.c\
+	  strlcat.c\
 	  substr.c\
 	  strmapi.c\
       	  split.c\

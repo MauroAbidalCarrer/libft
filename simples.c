@@ -6,7 +6,7 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 19:27:16 by maabidal          #+#    #+#             */
-/*   Updated: 2021/11/30 17:07:17 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/03 19:17:10 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_isalnum(int c)
 
 int	ft_isascii(int c)
 {
-	return (inrange(c, (char)0, (char)255));
+	return (c >= 0 && c <= 127);
 }
 /*
 #include<stdio.h>
@@ -65,9 +65,9 @@ int test(int (*my)(int c), int (*og)(int c), char* name)
 int main(int ac, char** av)
 
 {
-	test(&ft_isalpha, &isalpha,"isalpha");
-	test(&ft_isdigit, &isdigit,"isdigit");
-	test(&ft_isalnum, &isalnum,"isalnum");
+	//test(&ft_isalpha, &isalpha,"isalpha");
+	//test(&ft_isdigit, &isdigit,"isdigit");
+	//test(&ft_isalnum, &isalnum,"isalnum");
 	test(&ft_isascii, &isascii,"isascii");
 //	test(&ft_isprint, &isprint,"isprint");
 }

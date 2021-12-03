@@ -6,9 +6,11 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 18:46:52 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/03 18:38:31 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/03 19:28:43 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include<stdlib.h>
 
 char	*ft_strchr(const char *str, int c)
 {
@@ -52,8 +54,6 @@ int	ft_strncmp(const char *s1, const char *s2, int n)
 	}
 	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
-
-#include<stdlib.h>
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
