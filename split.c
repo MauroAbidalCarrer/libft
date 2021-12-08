@@ -6,95 +6,89 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 21:24:55 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/03 21:15:22 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/08 17:13:05 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-static char const	*skips(char const *str, char c)
+static char	*skip(const char *str, char sep)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (str[i] && str[i] == c)
+	while (str[i] && (*str == sep) == (str[i] == sep))
 		i++;
-	return (str + i);
+	return ((char *)str + i);
 }
 
-static char const	*skipw(char const *str, char c)
+static int	get_nb_words(const char *str, char c)
 {
-	int	i;
+	size_t	nb;
+	int		i;
 
-	i = 0;
-	while (str[i] && str[i] != c)
-		i++;
-	return (str + i);
-}
-
-static int	getnbwords(char const *str, char c)
-{
-	int	nbwords;
-
-	nbwords = (*str != c && *str);
-	while (*str && str[1])
+	nb = (*str && *str != c);
+	while (str[i] && str[i + 1])
 	{
-		str++;
-		nbwords += (str[-1] == c && *str != c);
+		nb += (str[i] == c && str[i + 1] != c);
+		i++;
 	}
-	return (nbwords);
+	return (nb);
 }
 
-static char	*dupuntil(char const *str, char c)
+static char	*dup_until_sep(char const*str, char sep)
 {
-	int		len;
-	char	*dup;
+	ssize_t	len;
+	char	*word;
 
 	len = 0;
-	while (str[len] && str[len] != c)
+	while (str[len] && str[len] != sep)
 		len++;
-	dup = malloc(sizeof(char) * (len + 1));
-	if (dup == NULL)
+	word = malloc(sizeof(char) * (len + 1));
+	if (word == NULL)
 		return (NULL);
-	dup[len] = 0;
+	word[len] = 0;
 	while (--len >= 0)
-		dup[len] = str[len];
-	return (dup);
+	{
+		word[len] = str[len];
+	}
+	return (word);
 }
 
-char	**ft_split(char const *str, char c)
+static char	**cancel(char **words, size_t nb_words)
 {
-	int		nbwords;
-	int		i;
+	size_t	i;
+
+	i = 0;
+	while (i < nb_words)
+		free(words[i]);
+	free(words);
+	return (NULL);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	size_t	i;
+	size_t	nb_words;
 	char	**words;
 
-	if (str == NULL)
+	if (s == NULL)
 		return (NULL);
-	nbwords = getnbwords(str, c);
-	words = malloc(sizeof(char *) * (nbwords + 1));
+	nb_words = get_nb_words(s, c);
+	words = malloc(sizeof(char *) * (nb_words + 1));
 	if (words == NULL)
 		return (NULL);
-	words[nbwords] = 0;
+	words[nb_words] = 0;
 	i = 0;
-	while (i < nbwords)
+	while (i < nb_words)
 	{
-		str = skips(str, c);
-		words[i] = dupuntil(str, c);
-		if (words[i++] == NULL)
-			return (NULL);
-		str = skipw(str, c);
+		if (*s == c)
+			s = skip(s, c);
+		words[i] = dup_until_sep(s, c);
+		if (words[i] == NULL)
+			return (cancel(words, i));
+		s = skip(s, c);
+		i++;
 	}
 	return (words);
 }
-/*
-int main(int ac, char** av)
-{
-	char** words = ft_split(av[1], av[2][0]);
-	while (*words)
-	{
-		printf("%s\n", *words);
-		free(*words);
-		words++;
-	}
-}
-*/

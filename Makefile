@@ -6,51 +6,53 @@
 #    By: maabidal <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 20:08:50 by maabidal          #+#    #+#              #
-#    Updated: 2021/12/03 22:56:44 by maabidal         ###   ########.fr        #
+#    Updated: 2021/12/08 17:12:01 by maabidal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+SRCS =	atoi.c\
+		mem.c\
+		mem2.c\
+		strdup.c\
+		strlcpy.c\
+		simples2.c\
+		calloc.c\
+		strtrim.c\
+		simples.c\
+		striteri.c\
+		itoa.c\
+		strlcat.c\
+		substr.c\
+		strmapi.c\
+		split.c\
+		strjoin.c\
+		strStuff.c\
+		write_fd.c
+
 NAME	= libft.a
-SRCS	= atoi.c\
-       	  mem.c\
-	  mem2.c\
-	  strdup.c\
-	  strlcpy.c\
-	  simples2.c\
-	  calloc.c\
-	  strtrim.c\
-       	  simples.c\
-	  striteri.c\
-	  itoa.c\
-	  strlcat.c\
-	  substr.c\
-	  strmapi.c\
-      	  split.c\
-      	  strjoin.c\
-	  strStuff.c\
-	  write_fd.c
-OBJS	= ${SRCS:.c=.o}
-HEADER  = includes
-CFLAGS  = -Wall -Wextra -Werror
+CC	= gcc
+CFLAGS	= -Wall -Wextra -Werror
 RM	= rm -f
+OBJS	= $(SRCS:.c=.o)
 
-%.o: %.c
-	gcc -Wall -Wextra -Werror -c ${SRCS} 
-all:		${NAME}
+all : $(NAME)
 
-${NAME}:	${OBJS}
-			ar rc ${NAME} ${OBJS}
+$(NAME) : $(OBJS)
+	ar -rcs $@ $^
 
-clean:
-			${RM} ${OBJS}
+.o : .c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-fclean:		clean
-			${RM} libft.a
+clean : 
+	$(RM) $(OBJS)
 
-re:			fclean all
+fclean : clean
+	$(RM) $(NAME)
+
+re :    fclean all
 
 so:
-	gcc -fPIC -Wall -Werror -Wextra -c *.c
-	gcc -shared -o libft.so *.o 
+	$(CC) -fPIC $(CFLAGS) -c $(SRCS)
+	gcc -shared -o libft.so $(OBJS)
 
-.PHONY:				all clean fclean re bonus
+.PHONY : all clean fclean re
