@@ -6,7 +6,7 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 21:24:55 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/08 17:13:05 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/08 17:35:22 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static int	get_nb_words(const char *str, char c)
 	size_t	nb;
 	int		i;
 
+	i = 0;
 	nb = (*str && *str != c);
 	while (str[i] && str[i + 1])
 	{
