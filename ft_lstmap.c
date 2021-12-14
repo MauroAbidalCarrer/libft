@@ -6,7 +6,7 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:35:07 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/14 17:04:52 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/14 19:05:03 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		if (node == NULL)
 		{
 			ft_lstclear(&new_front, del);
-				break ;
+			break ;
 		}
 		ft_lstadd_back(&new_front, node);
 		lst = lst->next;
