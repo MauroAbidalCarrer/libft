@@ -6,7 +6,7 @@
 #    By: maabidal <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 20:08:50 by maabidal          #+#    #+#              #
-#    Updated: 2021/12/08 17:12:01 by maabidal         ###   ########.fr        #
+#    Updated: 2021/12/14 18:41:47 by maabidal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,23 +45,36 @@ SRCS =	ft_atoi.c\
 		ft_tolower.c\
 		ft_toupper.c\
 
+BONUSSRCS =	ft_lstadd_back.c\
+		ft_lstclear.c\
+	     	ft_lstiter.c\
+	      	ft_lstmap.c\
+	      	ft_lstsize.c\
+		ft_lstadd_front.c\
+	       	ft_lstdelone.c\
+		ft_lstlast.c\
+		ft_lstnew.c
 
 NAME	= libft.a
 CC	= gcc
 CFLAGS	= -Wall -Wextra -Werror
 RM	= rm -f
 OBJS	= $(SRCS:.c=.o)
+BNSOBJS	= $(BONUSSRCS:.c=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
 	ar -rcs $@ $^
 
+bonus : $(OBJS) $(BNSOBJS)
+	ar -rcs $(NAME) $^
+
 .o : .c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@ -I ./
 
 clean : 
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BNSOBJS)
 
 fclean : clean
 	$(RM) $(NAME)
@@ -69,7 +82,7 @@ fclean : clean
 re :    fclean all
 
 so:
-	$(CC) -fPIC $(CFLAGS) -c $(SRCS)
-	gcc -shared -o libft.so $(OBJS)
+	$(CC) -fPIC $(CFLAGS) -c $(SRCS) $(BONUSSRCS)
+	gcc -shared -o libft.so $(OBJS) $(BNSOBJS)
 
 .PHONY : all clean fclean re

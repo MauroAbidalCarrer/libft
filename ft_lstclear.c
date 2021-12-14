@@ -6,7 +6,7 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:21:42 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/14 17:17:36 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/14 18:04:14 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	rec_del(t_list *n, void (*del)(void *))
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*n;
-
 	if (lst == NULL)
 		 return ;
 	rec_del(*lst, del);

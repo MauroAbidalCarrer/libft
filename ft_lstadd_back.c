@@ -6,7 +6,7 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:16:14 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/14 17:11:37 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/14 18:04:00 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 		return ;
 	last = ft_lstlast(*alst);
 	if (last == NULL)
-		*aslt = new;
+		*alst = new;
 	else
 		last->next = new;
 }
