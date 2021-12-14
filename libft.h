@@ -6,7 +6,7 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 20:05:47 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/14 18:40:59 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/14 19:01:32 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 
 typedef struct s_list
 {
-	struct s_list	*next;
 	void			*content;
+	struct s_list	*next;
 }	t_list;
 
 int		ft_atoi(const char *nptr);
