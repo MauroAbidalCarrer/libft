@@ -6,21 +6,21 @@
 /*   By: maabidal <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 19:45:52 by maabidal          #+#    #+#             */
-/*   Updated: 2021/12/16 15:16:52 by maabidal         ###   ########.fr       */
+/*   Updated: 2021/12/16 15:34:08 by maabidal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char	*i1;
 	unsigned char	*i2;
 
 	i1 = (unsigned char *)src;
 	i2 = (unsigned char *)dest;
-	if (!dest && !src)
-		return (dest);
+	if (i1 == NULL && i2 == NULL)
+		return (NULL);
 	while (n > 0)
 	{
 		*i2 = *i1;
